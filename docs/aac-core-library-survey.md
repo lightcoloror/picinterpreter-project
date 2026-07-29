@@ -329,6 +329,15 @@ Global Symbols hosts multiple symbol sets (including Mulberry, Sclera, ARASAAC, 
 
 **Implication for Tuyujia:** Global Symbols is a viable third backfill source (alongside ARASAAC API and OpenSymbols). For tokens that ARASAAC and OpenSymbols cannot resolve, Global Symbols may return a result from Mulberry or another set. The `PictogramSource` field already supports per-symbol source attribution, so this is plug-in compatible with the existing architecture.
 
+## 补充：2026 年跨端开源实现复核
+
+- **意图：** 在继续补功能前重新确认是否存在比当前“CBoard 全平台底座 + 共享纯核心 + Taro 微信适配”更成熟、可直接复用的开源实现，避免图语家重复研发 AAC、离线语音或低技术沟通能力。
+- **决策：** `SpeakEasy AAC` 与 `ClearSpeak AAC` 仅作为成人失语、卒中后大按钮、常用需求和照护者自定义流程的界面参考，不替换 CBoard，也不搬运其较薄的应用架构；`AsTeRICS Grid` 继续作为开放 AAC 格式、跨设备恢复和 PDF 沟通板的产品参照，但打印直接复用 CBoard 已有 PDF 导出，不在微信小程序重复引入排版引擎；`Moonshine Voice` 只保留为未来原生端离线普通话语音 adapter 候选，其非英语模型的非商业许可未解决前不得成为默认依赖；`Vosk` 只保留为未来可下载原生插件候选，不把约 50 MB 中文模型塞进微信包或 CBoard 默认包；`RunAnywhere` 因自定义商业条款和仍在快速演进的跨端层，不进入默认依赖。
+- **理由：** 当前 CBoard 已提供 Web、PWA、Electron、Cordova、完整板编辑、PDF、OBF/OBZ 和成熟测试体系，两个新发现的 AAC 应用虽然理念接近，但代码规模、维护活跃度和互操作能力都不足以成为更优底座。微信官方要求单包不超过 2 MiB、建议低于 1.5 MiB，大型离线 ASR 模型不适合直接随小程序发布。复用评估必须同时看许可证、维护状态、平台能力、包体和现有接线成本，而不是只看仓库是否开源。
+- **证据：** `SpeakEasy AAC`（MIT，React PWA）见 https://github.com/dylanharrington/aphasia；`ClearSpeak AAC`（MIT）见 https://github.com/hollenbachm/ClearSpeak-AAC；`AsTeRICS Grid` PDF 导出说明见 https://www.asterics-foundation.org/asterics-grid-documentation/documentation_en.html；`Moonshine Voice` 的代码与模型许可说明见 https://github.com/moonshine-ai/moonshine；`Vosk` 的 Apache-2.0 代码、中文支持与模型体积见 https://github.com/alphacep/vosk-api；`RunAnywhere` 的许可与 SDK 状态见 https://github.com/RunanywhereAI/runanywhere-sdks；微信包体依据见 https://developers.weixin.qq.com/community/develop/doc/00040e5a0846706e893dcc24256009。当前 CBoard fork 已有 `PrintBoardButton`、Settings PDF 导出和对应测试，图语家 PRD 又把“打印版导出”列在可延后项。
+- **生效范围：** 后续 CBoard Web/Electron/Cordova、微信小程序和原生端的依赖选择与功能分工。此结论不禁止未来在许可证、包体和真机性能满足后增加可选离线语音 adapter，也不把参考项目的界面或研究结论冒充为已经完成患者有效性验证。
+- **记录：** Codex（GPT-5），2026-07-27 15:24:20。
+
 ## Sources
 
 - Open Board Format: https://www.openboardformat.org/
@@ -351,3 +360,10 @@ Global Symbols hosts multiple symbol sets (including Mulberry, Sclera, ARASAAC, 
 - 2023 Taiwanese core vocabulary study: https://pubmed.ncbi.nlm.nih.gov/37083492/
 - Visual Scene Displays for aphasia (2015): https://pubmed.ncbi.nlm.nih.gov/26044911/
 - PRC-Saltillo Communication Journey Aphasia: https://www.prc-saltillo.com/articles/Aphasia-Diagnosis-Vocabulary
+- SpeakEasy AAC: https://github.com/dylanharrington/aphasia
+- ClearSpeak AAC: https://github.com/hollenbachm/ClearSpeak-AAC
+- AsTeRICS Grid documentation: https://www.asterics-foundation.org/asterics-grid-documentation/documentation_en.html
+- Moonshine Voice: https://github.com/moonshine-ai/moonshine
+- Vosk API: https://github.com/alphacep/vosk-api
+- RunAnywhere SDKs: https://github.com/RunanywhereAI/runanywhere-sdks
+- 微信小程序性能优化指南: https://developers.weixin.qq.com/community/develop/doc/00040e5a0846706e893dcc24256009

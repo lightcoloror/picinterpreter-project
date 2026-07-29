@@ -81,8 +81,11 @@
 |---|---|
 | [决策索引](decision-index.md) | 当前结论和对应 issue 的总索引 |
 | [实现任务索引](implementation-task-index.md) | 把方向拆成可执行任务 |
+| [图语家迁移逐项覆盖矩阵](picinterpreter-cboard-wechat-coverage-matrix.md) | 对照文档/issue、原实现、CBoard Web 与微信小程序，并按遗漏项安排开发 |
 | [ADR-001 接收端数据模型](ADR-001-receiver-data-model.md) | 重要数据模型决策 |
 | [架构说明](architecture.md) | 当前系统结构和边界 |
+| [商业 AAC 商业模式对照](commercial-aac-business-model-benchmark.md) | 查成熟 AAC 产品靠什么收费、谁付费、是否公开营收 |
+| [成人失语商业化运营计划](tuyujia-aphasia-commercialization-plan.md) | 基于成人失语/卒中康复/照护沟通定位制定图语家商业化路径 |
 
 维护原则：
 
@@ -101,6 +104,7 @@
 | 匹配与数据研究 | `symbol-matching-research.md`, `aac-reference-inventory.md`, `aac-core-library-survey.md` |
 | 测试与反馈 | `chinese-aac-matching-test-cases.md`, `receiver-fixture-samples-evidence.md`, `user-research-playbook.md`, `caregiver-feedback-form.md` |
 | 社区传播 | `community-outreach-materials.md`, `community-recruitment-*.md` |
+| 商业化参考 | `commercial-aac-business-model-benchmark.md`, `tuyujia-aphasia-commercialization-plan.md` |
 
 ## 8. 暂不建议继续新增的文档类型
 

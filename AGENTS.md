@@ -22,3 +22,12 @@
 - 不删除已有功能来换取视觉简化；需要隐藏复杂信息时，应移动到照护者设置、抽屉、调试页或渐进展示区域。
 - 修改 UI 后必须运行 `npm run build`，并确保构建成功。
 - 涉及患者主流程的 UI 改动，需要额外检查移动端小屏下是否存在文字拥挤、按钮太小、控件重叠。
+
+## Documentation Rules
+
+### 2026-05-10 11:13:38 | codex
+
+- Follow the shared Obsidian documentation policy in `D:\used-by-codex\AI_OBSIDIAN_POLICY.md`.
+- Use the `obsidian` CLI to manage documentation in the local vault `D:\used by syncthing\obsidian sync\AI-obsidian`.
+- Every documentation update must include the acting tool/model name and a `YYYY-MM-DD HH:mm:ss` timestamp.
+- Prefer appending new records instead of deleting or rewriting earlier note content.
